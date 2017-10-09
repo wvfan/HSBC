@@ -19,9 +19,6 @@ yarn.lock
 /docs
 /platforms
 /plugins
-/www/css
-/www/dist
-/www/img
-/www/js
+/www
 
 *.orig

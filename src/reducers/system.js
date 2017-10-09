@@ -5,7 +5,7 @@ export const constants = {
 };
 
 const initialState = {
-  lang: 'zhC',
+  lang: 'en',
 };
 
 export default function system(state = initialState, action) {
