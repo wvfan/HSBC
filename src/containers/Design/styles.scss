@@ -1,0 +1,106 @@
+@import '~styles/variables';
+
+:local(.styles) {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  border: solid 1px white;
+  box-shadow: 0 0 5px $lesser-gray;
+  overflow: hidden;
+  transition:
+    width 0.3s $ease-out,
+    height 0.3s $ease-out,
+    border 0.3s,
+    border-radius 0.3s;
+
+  > .body {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    transition: opacity 0.3s;
+  }
+
+  > .fold {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 37px;
+    height: 37px;
+    padding-left: 5px;
+    color: white;
+    background-color: transparentize(black, 0.75);
+    font-family: iconfont;
+    font-size: 30px;
+    font-weight: 900;
+    transition: opacity 0.3s;
+  }
+  > .fold-hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  > .center {
+    right: 39px;
+    font-weight: normal;
+    padding-left: 3.5px;
+  }
+
+  > .horizon {
+    right: 78px;
+    font-weight: normal;
+    padding-left: 3.5px;
+  }
+
+  > .vertical {
+    right: 117px;
+    font-weight: normal;
+    padding-left: 3.5px;
+  }
+
+  > .change {
+    position: absolute;
+    width: 25px;
+    height: 40px;
+    top: calc(50% - 15px);
+    color: white;
+    background-color: transparentize(black, 0.75);
+    font-family: iconfont;
+    font-size: 27px;
+    text-align: center;
+    transition: opacity 0.3s;
+  }
+  > .change-hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  > .next {
+    right: 1px;
+  }
+
+  > .prev {
+    left: 1px;
+  }
+
+  > input {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 30px;
+    color: white;
+    background-color: transparentize(black, 0.9);
+    border: none;
+  }
+  > input.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+:local(.stylesHide) {
+  width: 50px;
+  height: 50px;
+  border: solid 1px transparentize(white, 1);
+  border-radius: 15px;
+  background-color: transparentize(black, 0.5);
+}

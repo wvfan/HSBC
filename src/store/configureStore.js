@@ -17,6 +17,9 @@ const lsConfig = {
   },
   deserialize: (str) => {
     const store = JSON.parse(str);
+    store.design.left = 0;
+    store.design.top = 0;
+    delete store.system;
     return store;
   },
 };

@@ -1,0 +1,32 @@
+@import '~styles/variables';
+
+:local(.styles) {
+
+  > .body {
+
+    > .edge {
+      position: absolute;
+      width: 50vw;
+      height: 50vw;
+      left: 25vw;
+      top: calc(50% - 25vw - 5vw);
+      opacity: 0.5;
+    }
+
+    @keyframes scanner-line {
+      0%   {top: calc(50% - 25vw - 5vw - 1vw); opacity: 0.75; animation-timing-function: ease-in;}
+      25%   {top: calc(50% - 5vw - 1vw); opacity: 1; animation-timing-function: ease-out;}
+      50%  {top: calc(50% + 25vw - 5vw - 1vw); opacity: 0.75; animation-timing-function: ease-in;}
+      75%   {top: calc(50% - 5vw - 1vw); opacity: 1; animation-timing-function: ease-out;}
+      100%  {top: calc(50% - 25vw - 5vw - 1vw); opacity: 0.75;}
+    }
+    > .line {
+      position: absolute;
+      width: 60vw;
+      height: 2vw;
+      left: 20vw;
+      top: calc(50% - 25vw - 5vw - 1vw);
+      animation: scanner-line 3s infinite;
+    }
+  }
+}

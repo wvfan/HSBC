@@ -6,6 +6,9 @@ export const constants = {
 
 const initialState = {
   lang: 'en',
+  user: {
+    addressVerified: false,
+  },
 };
 
 export default function system(state = initialState, action) {

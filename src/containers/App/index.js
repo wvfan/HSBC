@@ -6,6 +6,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 
+import modifyHistory from 'helpers/modifyHistory';
+
+import Design from 'containers/Design';
+
+import Scanner from 'containers/Scanner';
+import Address from 'containers/Address';
+
 import { styles } from './styles.scss';
 
 @connect(
@@ -25,6 +32,7 @@ export default class App extends React.Component {
   };
 
   componentWillMount() {
+    modifyHistory(this.props.history);
     if (DEBUGMODE) {
       // While testing with browser, automatically set url for MemoryRouter.
       // When running on device, the initial router will be '/'
@@ -32,9 +40,6 @@ export default class App extends React.Component {
       const index = (path.indexOf('/', 8) + 1) || (path.length + 1);
       this.props.history.replace(path.substr(index - 1));
     }
-    window.onDeviceReady(() => {
-      alert(2333);
-    });
   }
 
   render() {
@@ -43,8 +48,11 @@ export default class App extends React.Component {
     } = this.props;
 
     return (
-      <div className={styles}>
-        HSBC
+      <div className={`absolute-parent ${styles}`}>
+        {DEBUGMODE ? <Design /> : ''}
+        <Route exact path="/" component={Address} />
+        <Route path="/scanner" component={Scanner} />
+        <Route path="/address" component={Address} />
       </div>
     );
   }
